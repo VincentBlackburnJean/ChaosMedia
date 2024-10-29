@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class script_crosshair : MonoBehaviour
+public class script_gun : MonoBehaviour
 {
  
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Vector3 fwd = transform.TransformDirection(Vector3.back);
 
         int layerMask = 1 << 6;
 
@@ -22,8 +22,13 @@ public class script_crosshair : MonoBehaviour
         {
             Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
             Debug.Log("Did Hit");
+
+          /*  if (j.GetButton (Joycon.Button.SHOULDER_2))
+			{
+				Debug.Log ("Shoulder button 2 held");
+			}
             
-           
+           */
 
         }
        
