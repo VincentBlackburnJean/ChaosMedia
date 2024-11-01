@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JoyconLib_plugins\win64\hidapi.dll" />
+    <None Include="Assets\Packages\Fantasy Skybox FREE\Readme.txt" />
+    <None Include="Assets\Packages\Fantasy Skybox FREE\ReleaseNotes.txt" />
     <None Include="Assets\JoyconLib_plugins\win32\hidapi.dll" />
   </ItemGroup>
   <ItemGroup>
