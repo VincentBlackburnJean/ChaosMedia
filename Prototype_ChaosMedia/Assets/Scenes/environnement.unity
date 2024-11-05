@@ -5680,7 +5680,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2132953610}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
       propertyPath: m_LocalScale.x
@@ -5696,11 +5696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -94.1
+      value: 221.19998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.4
+      value: 34.620003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5751,6 +5751,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
+--- !u!4 &611241004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dbb74b7761fbac6469d450e6f11aa390, type: 3}
+  m_PrefabInstance: {fileID: 611241003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &637174824
 GameObject:
   m_ObjectHideFlags: 0
@@ -16003,7 +16008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707819576}
   m_Layer: 0
-  m_Name: --ambiance Sonore--
+  m_Name: --Audio--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19944,6 +19949,7 @@ Transform:
   - {fileID: 1354172734}
   - {fileID: 708304206}
   - {fileID: 2100427817}
+  - {fileID: 611241004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2139858065
@@ -20230,4 +20236,3 @@ SceneRoots:
   - {fileID: 1578496537}
   - {fileID: 2132953610}
   - {fileID: 1707819576}
-  - {fileID: 611241003}
