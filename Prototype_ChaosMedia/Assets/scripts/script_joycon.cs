@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,11 @@ private List<Joycon> joycons;
 
     private fantomeBehavior scriptFantome;
 
+    public score nbDePoints;
+
     [SerializeField] private int gunDmg = 33;
+
+    [SerializeField] private int prixParSeconde = 50;
 
 
     void Start ()
@@ -76,6 +81,9 @@ private List<Joycon> joycons;
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
                             Debug.Log ("Shoulder button 2 held");
+
+                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
+
 
                            if(cible.transform.tag == "fantome"){
 

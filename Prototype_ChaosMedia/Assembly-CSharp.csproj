@@ -69,6 +69,7 @@
     <Compile Include="Assets\LibraryJoycon\JoyconLib_scripts\HIDapi.cs" />
     <Compile Include="Assets\LibraryJoycon\JoyconDemo.cs" />
     <Compile Include="Assets\LibraryJoycon\JoyconLib_scripts\JoyconManager.cs" />
+    <Compile Include="Assets\scripts\score.cs" />
     <Compile Include="Assets\scripts\script_joycon.cs" />
     <Compile Include="Assets\scripts\multi_display.cs" />
   </ItemGroup>

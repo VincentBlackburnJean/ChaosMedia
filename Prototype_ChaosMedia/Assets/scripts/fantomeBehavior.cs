@@ -11,6 +11,10 @@ public float hp = 100;
 
 public float speed = 1;
 
+public score nbDePoints;
+
+[SerializeField] private int primeParKill = 500;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,9 @@ public float speed = 1;
     {
         if (hp < 0){
 
-        Destroy(gameObject);            
+        Destroy(gameObject);   
+
+        nbDePoints.points += primeParKill;         
 
         }
     }
