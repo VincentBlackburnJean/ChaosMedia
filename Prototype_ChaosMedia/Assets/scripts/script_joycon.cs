@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +16,16 @@ private List<Joycon> joycons;
 
     public Vector3 trueRotation;
 
+    private GameObject cible;
+
+    private fantomeBehavior scriptFantome;
+
+    public score nbDePoints;
+
+    [SerializeField] private int gunDmg = 33;
+
+    [SerializeField] private int prixParSeconde = 50;
+
 
     void Start ()
     {
@@ -27,6 +39,14 @@ private List<Joycon> joycons;
 
     // Update is called once per frame
     void Update () {
+
+
+        Vector3 fwd = transform.TransformDirection(Vector3.back);
+
+        int layerMask = 1 << 6;
+
+        layerMask = ~layerMask;
+
 		// make sure the Joycon only gets checked if attached
 		if (joycons.Count > 0)
         {
@@ -35,9 +55,46 @@ private List<Joycon> joycons;
 
             orientation = j.GetVector();
 
-           // trueRotation = orientation.eulerAngles;
+           
 
             gameObject.transform.localRotation = orientation;
+
+            if (j.GetButtonDown (Joycon.Button.DPAD_DOWN)) {
+				Debug.Log ("Rumble");
+
+				j.SetRumble (160, 320, 0.6f, 200);
+                j.Recenter ();
+				
+			}
+
+            RaycastHit hit;
+                    // Does the ray intersect any objects excluding the player layer
+                    if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, layerMask))
+                    {
+                        Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
+                        Debug.Log("Did Hit");
+
+                        cible = hit.transform.gameObject;
+
+                        scriptFantome = cible.GetComponent<fantomeBehavior>();
+
+                        if (j.GetButton (Joycon.Button.SHOULDER_2))
+                        {
+                            Debug.Log ("Shoulder button 2 held");
+
+                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
+
+
+                           if(cible.transform.tag == "fantome"){
+
+                                scriptFantome.hp -= gunDmg * Time.deltaTime;
+
+                            }
+                        }
+                        
+                    
+
+                    }
             
         }
 
