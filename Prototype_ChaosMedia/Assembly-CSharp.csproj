@@ -59,21 +59,22 @@
     <UnityVersion>2022.3.37f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Users\mrato\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.0.4\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\JoyconLib_scripts\JoyconManager.cs" />
-    <Compile Include="Assets\JoyconLib_scripts\Joycon.cs" />
-    <Compile Include="Assets\JoyconLib_scripts\HIDapi.cs" />
-    <Compile Include="Assets\JoyconDemo.cs" />
-    <Compile Include="Assets\scripts\script_crosshair.cs" />
+    <Compile Include="Assets\LibraryJoycon\JoyconLib_scripts\Joycon.cs" />
+    <Compile Include="Assets\scripts\fantomeBehavior.cs" />
+    <Compile Include="Assets\LibraryJoycon\JoyconLib_scripts\HIDapi.cs" />
+    <Compile Include="Assets\LibraryJoycon\JoyconDemo.cs" />
+    <Compile Include="Assets\LibraryJoycon\JoyconLib_scripts\JoyconManager.cs" />
     <Compile Include="Assets\scripts\script_joycon.cs" />
     <Compile Include="Assets\scripts\multi_display.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\JoyconLib_plugins\win64\hidapi.dll" />
-    <None Include="Assets\JoyconLib_plugins\win32\hidapi.dll" />
+    <None Include="Assets\LibraryJoycon\JoyconLib_plugins\win64\hidapi.dll" />
+    <None Include="Assets\LibraryJoycon\JoyconLib_plugins\win32\hidapi.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -414,18 +415,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.GradleProject">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

@@ -51,5 +51,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Prototype_ChaosMedia.sln"
+    "dotnet.defaultSolution": "Prototype_ChaosMedia.sln",
+    "cSpell.words": [
+        "Raycast"
+    ]
 }

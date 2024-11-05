@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,12 @@ private List<Joycon> joycons;
     public Quaternion orientation;
 
     public Vector3 trueRotation;
+
+    private GameObject cible;
+
+    private fantomeBehavior scriptFantome;
+
+    [SerializeField] private int gunDmg = 33;
 
 
     void Start ()
@@ -62,9 +69,19 @@ private List<Joycon> joycons;
                         Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
                         Debug.Log("Did Hit");
 
+                        cible = hit.transform.gameObject;
+
+                        scriptFantome = cible.GetComponent<fantomeBehavior>();
+
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
                             Debug.Log ("Shoulder button 2 held");
+
+                           if(cible.transform.tag == "fantome"){
+
+                                scriptFantome.hp -= gunDmg * Time.deltaTime;
+
+                            }
                         }
                         
                     
