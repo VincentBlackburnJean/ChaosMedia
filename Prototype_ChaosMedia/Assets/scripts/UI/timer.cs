@@ -11,7 +11,9 @@ public class timer : MonoBehaviour
 
     public UnityEvent aLaFinDuTemps;
 
-     private bool decompteActif = false;
+    public UnityEvent spawnFantome;
+
+    private bool decompteActif = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class timer : MonoBehaviour
 
         chrono.temps = chrono.tempsInitial;
         decompteActif = true;
+
 
     }
 }

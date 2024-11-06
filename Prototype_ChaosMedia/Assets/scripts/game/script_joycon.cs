@@ -97,6 +97,8 @@ private List<Joycon> joycons;
 
                                 scriptFantome.hp -= gunDmg * Time.deltaTime;
 
+                                scriptFantome.speed = 1.5f;
+
                             }
                         }
 
