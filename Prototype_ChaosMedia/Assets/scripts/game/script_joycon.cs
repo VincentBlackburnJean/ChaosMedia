@@ -47,7 +47,7 @@ private List<Joycon> joycons;
     void Update () {
 
 
-        Vector3 fwd = transform.TransformDirection(Vector3.back);
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int layerMask = 1 << 6;
 
