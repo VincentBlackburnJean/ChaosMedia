@@ -111,8 +111,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  baseHp: 100
   speed: 5
+  baseSpeed: 5
   nbDePoints: {fileID: 11400000, guid: e22b80c5e5995c740b555aa1d695d209, type: 2}
+  estBlesse: 0
+  regen: 50
   primeParKill: 500
 --- !u!95 &8001175561532864381
 Animator:
