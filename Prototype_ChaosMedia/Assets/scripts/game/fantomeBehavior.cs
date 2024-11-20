@@ -31,6 +31,8 @@ private GameObject[] path;
 
 private int pointsIndex;
 
+private int random;
+
 
 
 
@@ -43,6 +45,8 @@ private int pointsIndex;
 
        hp = baseHp;
        speed = baseSpeed;
+
+       pointsIndex = Random.Range(0,path.Length - 1);
     }
 
     // Update is called once per frame
@@ -82,7 +86,9 @@ private int pointsIndex;
 
             if(transform.position == path[pointsIndex].transform.position){
 
-                pointsIndex++;
+               pointsIndex= Random.Range(0,path.Length - 1);
+
+               
 
             }
 
@@ -90,7 +96,7 @@ private int pointsIndex;
 
                 pointsIndex = 0;
 
-            }
+            } 
 
         }
 
