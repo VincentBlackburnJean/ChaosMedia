@@ -13,6 +13,7 @@ private List<Joycon> joycons;
    
     public int jc_ind = 0;
     public Quaternion orientation;
+    public Quaternion orientation2;
 
     public Vector3 trueRotation;
 
@@ -27,6 +28,9 @@ private List<Joycon> joycons;
     [SerializeField] private int prixParSeconde = 50;
 
     private AudioSource audioSource;
+
+    [SerializeField] private GameObject player2;
+    
 
 
     void Start ()
@@ -47,7 +51,7 @@ private List<Joycon> joycons;
     void Update () {
 
 
-        Vector3 fwd = transform.TransformDirection(Vector3.back);
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int layerMask = 1 << 6;
 
@@ -58,20 +62,32 @@ private List<Joycon> joycons;
         {
 			Joycon j = joycons [jc_ind];
 
+           // Joycon j2 = joycons [1];
+
 
             orientation = j.GetVector();
 
-           
+           // orientation2 = j2.GetVector();
 
+           
             gameObject.transform.localRotation = orientation;
 
-            if (j.GetButtonDown (Joycon.Button.DPAD_DOWN)) {
+            player2.transform.localRotation = orientation2;
+
+            if (j.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
 
 				j.SetRumble (160, 320, 0.6f, 200);
                 j.Recenter ();
 				
 			}
+           /* if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
+				Debug.Log ("Rumble");
+
+				j.SetRumble (160, 320, 0.6f, 200);
+                j.Recenter ();
+				
+			}*/
 
             RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
