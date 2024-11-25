@@ -1458,7 +1458,7 @@ Transform:
   m_GameObject: {fileID: 452617364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -96.3, y: 28.63, z: 11.55}
+  m_LocalPosition: {x: -96.3, y: 30.99, z: 11.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2032,7 +2032,7 @@ Transform:
   m_GameObject: {fileID: 1057833480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100.262, y: 28.63, z: -19.611}
+  m_LocalPosition: {x: -97.99, y: 30.12, z: -19.611}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2409,7 +2409,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.861017, y: -18.515898, z: 28.11631}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 291381913}
   - {fileID: 397461480}
@@ -2854,6 +2854,10 @@ PrefabInstance:
     - target: {fileID: 4660605160557088516, guid: 13de685edfb80b54fa9a928311668939, type: 3}
       propertyPath: m_Name
       value: --zone_couloir--
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306122205074765959, guid: 13de685edfb80b54fa9a928311668939, type: 3}
+      propertyPath: m_Name
+      value: Cadre_mathieu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
