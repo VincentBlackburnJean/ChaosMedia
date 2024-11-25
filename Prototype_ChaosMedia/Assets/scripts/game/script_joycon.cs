@@ -30,6 +30,7 @@ private List<Joycon> joycons;
     private AudioSource audioSource;
 
     [SerializeField] private GameObject player2;
+    
 
 
     void Start ()
@@ -61,12 +62,12 @@ private List<Joycon> joycons;
         {
 			Joycon j = joycons [jc_ind];
 
-            Joycon j2 = joycons [1];
+           // Joycon j2 = joycons [1];
 
 
             orientation = j.GetVector();
 
-            orientation2 = j2.GetVector();
+           // orientation2 = j2.GetVector();
 
            
             gameObject.transform.localRotation = orientation;
@@ -80,13 +81,13 @@ private List<Joycon> joycons;
                 j.Recenter ();
 				
 			}
-            if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
+           /* if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
 
 				j.SetRumble (160, 320, 0.6f, 200);
                 j.Recenter ();
 				
-			}
+			}*/
 
             RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
