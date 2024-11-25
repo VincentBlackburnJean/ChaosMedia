@@ -5,7 +5,7 @@ using UnityEngine;
 public class fantomeSpawner : MonoBehaviour
 {
 
-    public GameObject Cadeau;
+    public GameObject[] prefabs;
 
     private GameObject[] path;
 
@@ -36,7 +36,7 @@ public class fantomeSpawner : MonoBehaviour
 
             random = Random.Range(0,path.Length - 1);
             positionInitiale =  path[(int)random].transform.position;
-            Instantiate(Cadeau, positionInitiale, rotation);
+            Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)], positionInitiale, rotation);
             Debug.Log("Wassup");
 
 
