@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: lvlTimer
   m_EditorClassIdentifier: 
   temps: 48.273
-  tempsInitial: 60
+  tempsInitial: 130

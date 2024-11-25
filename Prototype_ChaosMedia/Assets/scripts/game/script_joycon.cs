@@ -62,14 +62,8 @@ private List<Joycon> joycons;
         {
 			Joycon j = joycons [jc_ind];
 
-           // Joycon j2 = joycons [1];
-
-
             orientation = j.GetVector();
 
-           // orientation2 = j2.GetVector();
-
-           
             gameObject.transform.localRotation = orientation;
 
             player2.transform.localRotation = orientation2;
@@ -81,7 +75,16 @@ private List<Joycon> joycons;
                 j.Recenter ();
 				
 			}
-           /* if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
+
+
+
+           /* 
+           
+            Joycon j2 = joycons [1];
+
+            orientation2 = j2.GetVector();
+
+           if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
 
 				j.SetRumble (160, 320, 0.6f, 200);
@@ -94,7 +97,7 @@ private List<Joycon> joycons;
                     if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, layerMask))
                     {
                         Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
-                        Debug.Log("Did Hit");
+                        
 
                         cible = hit.transform.gameObject;
 
@@ -102,7 +105,7 @@ private List<Joycon> joycons;
 
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
-                            Debug.Log ("Shoulder button 2 held");
+                            
 
                             nbDePoints.points -= prixParSeconde * Time.deltaTime;
 
@@ -113,7 +116,9 @@ private List<Joycon> joycons;
 
                                 scriptFantome.hp -= gunDmg * Time.deltaTime;
 
-                                scriptFantome.speed = 1.5f;
+                                scriptFantome.speed = 1f;
+
+                                 Debug.Log ("Gros big");
 
                             }
                         }

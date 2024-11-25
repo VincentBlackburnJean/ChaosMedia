@@ -33,6 +33,8 @@ private int pointsIndex;
 
 private int random;
 
+private Animator anim;
+
 
 
 
@@ -47,6 +49,8 @@ private int random;
        speed = baseSpeed;
 
        pointsIndex = Random.Range(0,path.Length - 1);
+
+       anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,9 +67,7 @@ private int random;
 
         if (hp < 0){
 
-        Destroy(gameObject);   
-
-        nbDePoints.points += primeParKill;         
+            anim.SetTrigger("mort");
 
         }
 
@@ -117,6 +119,15 @@ private int random;
 
         }
 
+
+    }
+
+
+    public void Death(){
+
+        Destroy(gameObject);   
+
+        nbDePoints.points += primeParKill;   
 
     }
 }

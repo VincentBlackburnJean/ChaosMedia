@@ -7,6 +7,8 @@ public class fantomeSpawner : MonoBehaviour
 
     public GameObject[] prefabs;
 
+    public Transform conteneur;
+
     private GameObject[] path;
 
     private float random;
@@ -30,13 +32,13 @@ public class fantomeSpawner : MonoBehaviour
 
     public void SpawnFantome(){
 
-        if(fantomes.Length < 5){
+        if(fantomes.Length < 3){
 
             path = GameObject.FindGameObjectsWithTag("path");
 
             random = Random.Range(0,path.Length - 1);
             positionInitiale =  path[(int)random].transform.position;
-            Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)], positionInitiale, rotation);
+            Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)], positionInitiale, rotation, conteneur);
             Debug.Log("Wassup");
 
 
