@@ -21,6 +21,9 @@ private List<Joycon> joycons;
 
     private fantomeBehavior scriptFantome;
 
+    private bossBehavior scriptBoss; 
+    private bossCloneBehavior scriptClones; 
+
     public score nbDePoints;
 
     [SerializeField] private int gunDmg = 50;
@@ -30,6 +33,7 @@ private List<Joycon> joycons;
     private AudioSource audioSource;
 
     [SerializeField] private GameObject player2;
+
     
 
 
@@ -125,6 +129,10 @@ private List<Joycon> joycons;
 
                         scriptFantome = cible.GetComponent<fantomeBehavior>();
 
+                        scriptBoss = cible.GetComponent<bossBehavior>();
+
+                        scriptClones = cible.GetComponent<bossCloneBehavior>();
+
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
                             
@@ -134,11 +142,35 @@ private List<Joycon> joycons;
 
                                 scriptFantome.speed = 1f;
 
-                                Debug.Log ("Gros big");
+                               
 
                                 cible.layer = 0;
 
                                 
+
+                            }
+
+                           if(cible.transform.tag == "boss"){
+
+                                if(scriptBoss.isInvincible == false){
+
+                                scriptBoss.hp -= gunDmg * Time.deltaTime;
+
+                                }
+
+                                
+
+                                
+
+                            }
+
+                            if(cible.transform.tag == "boss clones"){
+
+                                
+
+                                scriptClones.hp -= gunDmg * Time.deltaTime;
+
+                                Debug.Log ("Gros big");
 
                             }
                         }

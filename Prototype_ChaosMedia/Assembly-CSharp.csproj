@@ -67,7 +67,6 @@
     <Compile Include="Assets\scripts\game\fantomeBehavior.cs" />
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\JoyconManager.cs" />
     <Compile Include="Assets\scripts\game\bossBehavior.cs" />
-    <Compile Include="Assets\bossCloneBehavior.cs" />
     <Compile Include="Assets\scripts\UI\score.cs" />
     <Compile Include="Assets\scripts\game\script_joycon.cs" />
     <Compile Include="Assets\scripts\UI\lvlTimer.cs" />
@@ -76,7 +75,9 @@
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\HIDapi.cs" />
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\Joycon.cs" />
     <Compile Include="Assets\JoyconDemo.cs" />
+    <Compile Include="Assets\scripts\game\bossFightStarter.cs" />
     <Compile Include="Assets\scripts\UI\AffichageInfos.cs" />
+    <Compile Include="Assets\scripts\game\bossCloneBehavior.cs" />
     <Compile Include="Assets\scripts\multi_display.cs" />
     <Compile Include="Assets\scripts\UI\affichageScoreFin.cs" />
     <Compile Include="Assets\scripts\game\fantomeSpawner.cs" />
