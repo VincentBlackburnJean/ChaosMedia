@@ -21,15 +21,21 @@ private List<Joycon> joycons;
 
     private fantomeBehavior scriptFantome;
 
+    private bossBehavior scriptBoss; 
+    private bossCloneBehavior scriptClones; 
+
     public score nbDePoints;
 
-    [SerializeField] private int gunDmg = 33;
+    [SerializeField] private int gunDmg = 50;
 
     [SerializeField] private int prixParSeconde = 50;
 
     private AudioSource audioSource;
 
+    [SerializeField] private Animator crosshairAnim;
+
     [SerializeField] private GameObject player2;
+
     
 
 
@@ -62,17 +68,9 @@ private List<Joycon> joycons;
         {
 			Joycon j = joycons [jc_ind];
 
-           // Joycon j2 = joycons [1];
-
-
             orientation = j.GetVector();
 
-           // orientation2 = j2.GetVector();
-
            
-            gameObject.transform.localRotation = orientation;
-
-            player2.transform.localRotation = orientation2;
 
             if (j.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
@@ -81,48 +79,105 @@ private List<Joycon> joycons;
                 j.Recenter ();
 				
 			}
-           /* if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
+
+
+
+           if (joycons.Count == 2){
+
+            Joycon j2 = joycons [1];
+
+            orientation2 = j2.GetVector();
+
+           if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
 
-				j.SetRumble (160, 320, 0.6f, 200);
-                j.Recenter ();
+				j2.SetRumble (160, 320, 0.6f, 200);
+                j2.Recenter ();
 				
-			}*/
+			}
 
-            RaycastHit hit;
+           } 
+                    gameObject.transform.localRotation = orientation;
+
+                    player2.transform.localRotation = orientation2;
+
+                    if (j.GetButton (Joycon.Button.SHOULDER_2))
+                    {
+
+                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
+
+                            audioSource.volume = 1;
+
+                        }
+
+                         else{
+
+                            audioSource.volume = 0;
+
+                        }
+
+
+           
+            
+
+                    RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
-                    if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, layerMask))
+                    if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity))
                     {
                         Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
-                        Debug.Log("Did Hit");
+                        
 
                         cible = hit.transform.gameObject;
 
                         scriptFantome = cible.GetComponent<fantomeBehavior>();
 
+                        scriptBoss = cible.GetComponent<bossBehavior>();
+
+                        scriptClones = cible.GetComponent<bossCloneBehavior>();
+
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
-                            Debug.Log ("Shoulder button 2 held");
-
-                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
-
-                            audioSource.Play();
-
-
+                            
                            if(cible.transform.tag == "fantome"){
 
                                 scriptFantome.hp -= gunDmg * Time.deltaTime;
 
-                                scriptFantome.speed = 1.5f;
+                                scriptFantome.speed = 1f;
+
+                               
+
+                                cible.layer = 0;
+
+                                
+
+                            }
+
+                           if(cible.transform.tag == "boss"){
+
+                                if(scriptBoss.isInvincible == false){
+
+                                scriptBoss.hp -= gunDmg * Time.deltaTime;
+
+                                }
+
+                                
+
+                                
+
+                            }
+
+                            if(cible.transform.tag == "boss clones"){
+
+                                
+
+                                scriptClones.hp -= gunDmg * Time.deltaTime;
+
+                                Debug.Log ("Gros big");
 
                             }
                         }
 
-                        else{
-
-                            audioSource.Stop();
-
-                        }
+                       
                         
                     
 

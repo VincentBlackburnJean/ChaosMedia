@@ -9,6 +9,8 @@ public class score : ScriptableObject
     
     public float points;
 
+    public float pointsInitiaux;
+
 
 }
 

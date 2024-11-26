@@ -6,6 +6,10 @@ TagManager:
   tags:
   - fantome
   - path
+  - target
+  - boss
+  - boss clones
+  - boss path
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Invisible
-  - 
+  - clones
   - 
   - 
   - 

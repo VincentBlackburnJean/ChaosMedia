@@ -7,6 +7,8 @@ public class fantomeSpawner : MonoBehaviour
 
     public GameObject[] prefabs;
 
+    public Transform conteneur;
+
     private GameObject[] path;
 
     private float random;
@@ -17,12 +19,17 @@ public class fantomeSpawner : MonoBehaviour
 
     private Quaternion rotation;
 
-    private GameObject[] fantomes;
+    public GameObject[] fantomes;
+
+    public bool blocked = false;
+
+    
 
     void Start()
     {
         rotation.eulerAngles = rotationInitiale;
 
+       
 
         InvokeRepeating("SpawnFantome", 0.5f, 2f);
     }
@@ -30,18 +37,21 @@ public class fantomeSpawner : MonoBehaviour
 
     public void SpawnFantome(){
 
-        if(fantomes.Length < 5){
+        if(blocked == false)
+        {
+            if(fantomes.Length < 3){
 
-            path = GameObject.FindGameObjectsWithTag("path");
+                path = GameObject.FindGameObjectsWithTag("path");
 
-            random = Random.Range(0,path.Length - 1);
-            positionInitiale =  path[(int)random].transform.position;
-            Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)], positionInitiale, rotation);
-            Debug.Log("Wassup");
+                random = Random.Range(0,path.Length - 1);
+                positionInitiale =  path[(int)random].transform.position;
+                Instantiate(prefabs[Random.Range(0, prefabs.Length)], positionInitiale, rotation, conteneur);
+                Debug.Log("Wassup");
 
 
+            }
         }
-
+        
         
 
 

@@ -59,12 +59,14 @@
     <UnityVersion>2022.3.37f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Users\mrato\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.0.4\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.37f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\game\fantomeBehavior.cs" />
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\JoyconManager.cs" />
+    <Compile Include="Assets\scripts\game\bossBehavior.cs" />
     <Compile Include="Assets\scripts\UI\score.cs" />
     <Compile Include="Assets\scripts\game\script_joycon.cs" />
     <Compile Include="Assets\scripts\UI\lvlTimer.cs" />
@@ -73,7 +75,9 @@
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\HIDapi.cs" />
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\Joycon.cs" />
     <Compile Include="Assets\JoyconDemo.cs" />
+    <Compile Include="Assets\scripts\game\bossFightStarter.cs" />
     <Compile Include="Assets\scripts\UI\AffichageInfos.cs" />
+    <Compile Include="Assets\scripts\game\bossCloneBehavior.cs" />
     <Compile Include="Assets\scripts\multi_display.cs" />
     <Compile Include="Assets\scripts\UI\affichageScoreFin.cs" />
     <Compile Include="Assets\scripts\game\fantomeSpawner.cs" />

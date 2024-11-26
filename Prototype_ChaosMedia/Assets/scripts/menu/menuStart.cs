@@ -10,7 +10,7 @@ public class menuStart : MonoBehaviour
 
     public void StartGame(){
 
-        nbDePoints.points = 1000;
+       
         SceneManager.LoadScene(1);
         
     }
