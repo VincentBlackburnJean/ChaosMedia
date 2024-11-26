@@ -32,6 +32,8 @@ private List<Joycon> joycons;
 
     private AudioSource audioSource;
 
+    [SerializeField] private Animator crosshairAnim;
+
     [SerializeField] private GameObject player2;
 
     
