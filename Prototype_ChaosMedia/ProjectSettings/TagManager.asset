@@ -6,15 +6,19 @@ TagManager:
   tags:
   - fantome
   - path
+  - target
+  - boss
+  - boss clones
+  - boss path
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - Invisible
-  - 
+  - clones
   - 
   - 
   - 

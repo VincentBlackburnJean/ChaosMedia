@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: score
   m_EditorClassIdentifier: 
   points: 1325.2426
+  pointsInitiaux: 300

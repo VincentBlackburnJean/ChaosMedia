@@ -5,13 +5,23 @@ using UnityEngine;
 public class fantomeBehavior : MonoBehaviour
 {
 
+//test
 
+private GameObject[] joueur;
 
-public float hp = 100;
+public float hp;
 
-public float speed = 5;
+[SerializeField] private float baseHp = 100;
+
+public float speed;
+
+[SerializeField] private float baseSpeed;
 
 public score nbDePoints;
+
+public bool estBlesse = false;
+
+public float regen = 50;
 
 [SerializeField] private int primeParKill = 500;
 
@@ -23,6 +33,12 @@ private GameObject[] path;
 
 private int pointsIndex;
 
+private int random;
+
+private Animator anim;
+
+private AudioSource audioSource;
+
 
 
 
@@ -30,18 +46,70 @@ private int pointsIndex;
     void Start()
     {
        path = GameObject.FindGameObjectsWithTag("path");
+
+       hp = baseHp;
+       speed = baseSpeed;
+
+       pointsIndex = Random.Range(0,path.Length - 1);
+
+       anim = GetComponent<Animator>();
+
+       joueur = GameObject.FindGameObjectsWithTag("target");
+
+       
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hp < 0){
+        if(hp > baseHp){
 
-        Destroy(gameObject);   
+            estBlesse = false;
+            hp = baseHp;
+            speed = baseSpeed;
 
-        nbDePoints.points += primeParKill;         
 
         }
+
+        if (hp < 0){
+
+            anim.SetTrigger("mort");
+
+            if(!audioSource.isPlaying){
+
+                audioSource.Play();
+
+            }
+            
+
+        }
+
+        if(hp < 100){
+
+            hp += regen * Time.deltaTime;
+            speed = 1;
+
+        }
+
+        else{
+
+             speed = baseSpeed;
+
+        }
+
+       // transform.LookAt(joueur[0].transform);
+
+
+       if(gameObject.layer == 0){
+
+        foreach (Transform child in transform)
+        {
+             child.gameObject.layer = 0;
+        }
+                                
+
+       }
 
         Pathing();
     }
@@ -54,7 +122,9 @@ private int pointsIndex;
 
             if(transform.position == path[pointsIndex].transform.position){
 
-                pointsIndex++;
+               pointsIndex= Random.Range(0,path.Length - 1);
+
+               
 
             }
 
@@ -62,11 +132,19 @@ private int pointsIndex;
 
                 pointsIndex = 0;
 
-            }
+            } 
 
         }
 
     }
 
-   
+
+
+    public void Death(){
+
+        Destroy(gameObject);   
+
+        nbDePoints.points += primeParKill;   
+
+    }
 }
