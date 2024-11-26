@@ -21,10 +21,13 @@ public class fantomeSpawner : MonoBehaviour
 
     private GameObject[] fantomes;
 
+    
+
     void Start()
     {
         rotation.eulerAngles = rotationInitiale;
 
+       
 
         InvokeRepeating("SpawnFantome", 0.5f, 2f);
     }
@@ -38,7 +41,7 @@ public class fantomeSpawner : MonoBehaviour
 
             random = Random.Range(0,path.Length - 1);
             positionInitiale =  path[(int)random].transform.position;
-            Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)], positionInitiale, rotation, conteneur);
+            Instantiate(prefabs[Random.Range(0, prefabs.Length)], positionInitiale, rotation, conteneur);
             Debug.Log("Wassup");
 
 

@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\game\fantomeBehavior.cs" />
     <Compile Include="Assets\JoyconLib\JoyconLib_scripts\JoyconManager.cs" />
+    <Compile Include="Assets\scripts\game\bossBehavior.cs" />
+    <Compile Include="Assets\bossCloneBehavior.cs" />
     <Compile Include="Assets\scripts\UI\score.cs" />
     <Compile Include="Assets\scripts\game\script_joycon.cs" />
     <Compile Include="Assets\scripts\UI\lvlTimer.cs" />

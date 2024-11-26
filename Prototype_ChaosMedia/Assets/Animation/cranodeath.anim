@@ -372,7 +372,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1
-    functionName: fantomeBehavior/Methods/Mort
+    functionName: Death
     data: 
     objectReferenceParameter: {fileID: 6271602385523913372, guid: e5a9550c53af8b14c82d755f91f06e6b, type: 3}
     floatParameter: 0

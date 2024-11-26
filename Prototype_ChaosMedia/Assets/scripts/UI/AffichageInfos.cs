@@ -18,7 +18,11 @@ public class AffichageInfos : MonoBehaviour
     [SerializeField] private TMP_Text champTextePoints;
 
 
+    void Start(){
 
+         points.points = points.pointsInitiaux;
+
+    }
 
 
     public void AfficherTemps()
@@ -30,7 +34,7 @@ public class AffichageInfos : MonoBehaviour
         
         TimeSpan ts = TimeSpan.FromSeconds(temps);
 
-        champTexteTemps.text = string.Format("{0:00};{1:00}", ts.Minutes, ts.Seconds);
+        champTexteTemps.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
 
      }
 

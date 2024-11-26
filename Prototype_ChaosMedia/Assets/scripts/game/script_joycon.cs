@@ -23,7 +23,7 @@ private List<Joycon> joycons;
 
     public score nbDePoints;
 
-    [SerializeField] private int gunDmg = 33;
+    [SerializeField] private int gunDmg = 50;
 
     [SerializeField] private int prixParSeconde = 50;
 
@@ -64,9 +64,7 @@ private List<Joycon> joycons;
 
             orientation = j.GetVector();
 
-            gameObject.transform.localRotation = orientation;
-
-            player2.transform.localRotation = orientation2;
+           
 
             if (j.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
@@ -78,8 +76,8 @@ private List<Joycon> joycons;
 
 
 
-           /* 
-           
+           if (joycons.Count == 2){
+
             Joycon j2 = joycons [1];
 
             orientation2 = j2.GetVector();
@@ -87,14 +85,38 @@ private List<Joycon> joycons;
            if (j2.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
 
-				j.SetRumble (160, 320, 0.6f, 200);
-                j.Recenter ();
+				j2.SetRumble (160, 320, 0.6f, 200);
+                j2.Recenter ();
 				
-			}*/
+			}
 
-            RaycastHit hit;
+           } 
+                    gameObject.transform.localRotation = orientation;
+
+                    player2.transform.localRotation = orientation2;
+
+                    if (j.GetButton (Joycon.Button.SHOULDER_2))
+                    {
+
+                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
+
+                            audioSource.volume = 1;
+
+                        }
+
+                         else{
+
+                            audioSource.volume = 0;
+
+                        }
+
+
+           
+            
+
+                    RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
-                    if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity, layerMask))
+                    if (Physics.Raycast(transform.position, fwd, out hit, Mathf.Infinity))
                     {
                         Debug.DrawRay(transform.position, fwd * hit.distance, Color.yellow);
                         
@@ -106,28 +128,22 @@ private List<Joycon> joycons;
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
                             
-
-                            nbDePoints.points -= prixParSeconde * Time.deltaTime;
-
-                            audioSource.Play();
-
-
                            if(cible.transform.tag == "fantome"){
 
                                 scriptFantome.hp -= gunDmg * Time.deltaTime;
 
                                 scriptFantome.speed = 1f;
 
-                                 Debug.Log ("Gros big");
+                                Debug.Log ("Gros big");
+
+                                cible.layer = 0;
+
+                                
 
                             }
                         }
 
-                        else{
-
-                            audioSource.Stop();
-
-                        }
+                       
                         
                     
 

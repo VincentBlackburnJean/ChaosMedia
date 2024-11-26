@@ -7,6 +7,8 @@ public class fantomeBehavior : MonoBehaviour
 
 //test
 
+private GameObject[] joueur;
+
 public float hp;
 
 [SerializeField] private float baseHp = 100;
@@ -35,7 +37,7 @@ private int random;
 
 private Animator anim;
 
-
+private AudioSource audioSource;
 
 
 
@@ -51,6 +53,11 @@ private Animator anim;
        pointsIndex = Random.Range(0,path.Length - 1);
 
        anim = GetComponent<Animator>();
+
+       joueur = GameObject.FindGameObjectsWithTag("target");
+
+       
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,7 +66,7 @@ private Animator anim;
         if(hp > baseHp){
 
             estBlesse = false;
-            hp = 100;
+            hp = baseHp;
             speed = baseSpeed;
 
 
@@ -69,13 +76,40 @@ private Animator anim;
 
             anim.SetTrigger("mort");
 
+            if(!audioSource.isPlaying){
+
+                audioSource.Play();
+
+            }
+            
+
+        }
+
+        if(hp < 100){
+
+            hp += regen * Time.deltaTime;
+            speed = 1;
+
         }
 
         else{
 
-            estBlesse = true;
+             speed = baseSpeed;
 
         }
+
+       // transform.LookAt(joueur[0].transform);
+
+
+       if(gameObject.layer == 0){
+
+        foreach (Transform child in transform)
+        {
+             child.gameObject.layer = 0;
+        }
+                                
+
+       }
 
         Pathing();
     }
@@ -104,23 +138,6 @@ private Animator anim;
 
     }
 
-    public void Regen(){
-
-        if(estBlesse == true){
-
-            hp += regen * Time.deltaTime;
-            speed = 1;
-
-        }
-
-        else{
-
-            speed = baseSpeed;
-
-        }
-
-
-    }
 
 
     public void Death(){
