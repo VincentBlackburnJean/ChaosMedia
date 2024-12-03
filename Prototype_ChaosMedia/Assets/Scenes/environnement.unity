@@ -3999,7 +3999,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 169
+    m_Bits: 233
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -7126,7 +7126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &861358580
 Transform:
   m_ObjectHideFlags: 0
@@ -11115,7 +11115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323010093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15128,6 +15128,30 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
       propertyPath: m_Name
       value: Manoir_finale
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2969.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2969.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2969.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -72.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -103.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255330604547153426, guid: 0b65b91f3e817c445b1da845e9f2f761, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

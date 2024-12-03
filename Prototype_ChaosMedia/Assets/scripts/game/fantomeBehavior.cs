@@ -124,7 +124,9 @@ private AudioSource audioSource;
 
                pointsIndex= Random.Range(0,path.Length - 1);
 
-               
+               LoseSpeed();
+
+               Invoke("RestoreSpeed", 5f);
 
             }
 
@@ -135,6 +137,22 @@ private AudioSource audioSource;
             } 
 
         }
+
+    }
+
+
+    public void RestoreSpeed(){
+
+        speed = baseSpeed;
+
+        Debug.Log("IT WAS ME FLASH!!!");
+
+    }
+    public void LoseSpeed(){
+
+        speed = 0.1f;
+
+        Debug.Log("HAHA");
 
     }
 
