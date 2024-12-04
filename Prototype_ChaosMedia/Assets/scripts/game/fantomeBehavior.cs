@@ -63,15 +63,7 @@ private AudioSource audioSource;
     // Update is called once per frame
     void Update()
     {
-        if(hp > baseHp){
-
-            estBlesse = false;
-            hp = baseHp;
-            speed = baseSpeed;
-
-
-        }
-
+       
         if (hp < 0){
 
             anim.SetTrigger("mort");
@@ -82,19 +74,6 @@ private AudioSource audioSource;
 
             }
             
-
-        }
-
-        if(hp < 100){
-
-            hp += regen * Time.deltaTime;
-            speed = 1;
-
-        }
-
-        else{
-
-             speed = baseSpeed;
 
         }
 
@@ -115,6 +94,8 @@ private AudioSource audioSource;
     }
 
     public void Pathing(){
+
+        Debug.Log(speed);
 
         if(pointsIndex <= path.Length - 1){
 
