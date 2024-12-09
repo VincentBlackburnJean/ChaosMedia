@@ -45,6 +45,9 @@ public bool isInvincible = true;
 
 public menuStart sceneManager;
 
+[SerializeField] private AudioClip rire;
+[SerializeField] private AudioClip mort;
+[SerializeField] private AudioClip hurt;
 
 
     // Start is called before the first frame update
@@ -81,11 +84,13 @@ public menuStart sceneManager;
 
             anim.SetTrigger("hurt");
 
-            if(!audioSource.isPlaying){
+         // if(!audioSource.isPlaying){
 
-                audioSource.Play();
+                audioSource.clip = hurt;
 
-            }
+                PlayAudio();
+
+          //  }
             
             lives--;
 
@@ -124,7 +129,9 @@ public menuStart sceneManager;
 
             anim.SetTrigger("dead");
 
-            transform.position = bosspath[3].transform.position;
+           audioSource.clip = mort;
+
+           PlayAudio() ;
 
         }
 
@@ -132,7 +139,11 @@ public menuStart sceneManager;
         else{
 
             anim.SetTrigger("roar");
-            
+
+            audioSource.clip = rire;
+
+            PlayAudio();       
+
         }
            
 
@@ -179,6 +190,19 @@ public menuStart sceneManager;
         sceneManager.EndGame();
 
 
+
+    }
+
+    public void PlayAudio(){
+
+
+         if (audioSource.isPlaying)
+    {
+        audioSource.Stop(); // Stop any ongoing audio playback
+    }
+
+        audioSource.Play();
+         Debug.Log("Playing AudioClip: " + audioSource.clip.name);
 
     }
 

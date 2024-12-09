@@ -3,6 +3,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class script_joycon : MonoBehaviour
 {
@@ -32,9 +33,19 @@ private List<Joycon> joycons;
 
     private AudioSource audioSource;
 
-    [SerializeField] private Animator crosshairAnim;
-
     [SerializeField] private GameObject player2;
+    [SerializeField] private GameObject crosshair;
+    
+    private ParticleSystem spray;
+    private ParticleSystem fantomeParticle;
+
+    private Scene currentScene;
+
+    public menuStart sceneManager;
+    
+    
+        
+    
 
     
 
@@ -51,11 +62,18 @@ private List<Joycon> joycons;
 
          audioSource = GetComponent<AudioSource>();
 
+         spray = GetComponent<ParticleSystem>();
+
+         Scene currentScene = SceneManager.GetActiveScene ();
+
+         
+
 	}
 
     // Update is called once per frame
     void Update () {
 
+        string sceneName = currentScene.name;
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
@@ -70,7 +88,17 @@ private List<Joycon> joycons;
 
             orientation = j.GetVector();
 
-           
+            if(j.GetButton (Joycon.Button.DPAD_DOWN)){
+
+                    if (SceneManager.GetActiveScene().buildIndex == 0) 
+                        {
+                            sceneManager.StartGame();
+                        }
+                        else if (SceneManager.GetActiveScene().buildIndex == 2)
+                        {
+                            sceneManager.EndGame();
+                        } 
+            }
 
             if (j.GetButtonDown (Joycon.Button.SHOULDER_1)) {
 				Debug.Log ("Rumble");
@@ -108,11 +136,18 @@ private List<Joycon> joycons;
 
                             audioSource.volume = 1;
 
+                            crosshair.transform.Rotate(0, -5, 0, Space.Self);
+
+                            spray.Play();
+
+
+
                         }
 
                          else{
 
                             audioSource.volume = 0;
+                            spray.Stop();
 
                         }
 
@@ -135,6 +170,8 @@ private List<Joycon> joycons;
 
                         scriptClones = cible.GetComponent<bossCloneBehavior>();
 
+                        fantomeParticle = cible.GetComponent<ParticleSystem>();
+
                         if (j.GetButton (Joycon.Button.SHOULDER_2))
                         {
                             
@@ -142,13 +179,10 @@ private List<Joycon> joycons;
 
                                 scriptFantome.hp -= gunDmg * Time.deltaTime;
 
-                                scriptFantome.speed = 1f;
-
-                               
 
                                 cible.layer = 0;
 
-                                
+                                fantomeParticle.Play();
 
                             }
 
@@ -161,7 +195,7 @@ private List<Joycon> joycons;
                                 }
 
                                 
-
+                                fantomeParticle.Play();
                                 
 
                             }
@@ -173,6 +207,8 @@ private List<Joycon> joycons;
                                 scriptClones.hp -= gunDmg * Time.deltaTime;
 
                                 Debug.Log ("Gros big");
+
+                                fantomeParticle.Play();
 
                             }
                         }
