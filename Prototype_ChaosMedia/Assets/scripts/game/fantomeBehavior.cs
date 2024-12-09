@@ -63,15 +63,7 @@ private AudioSource audioSource;
     // Update is called once per frame
     void Update()
     {
-        if(hp > baseHp){
-
-            estBlesse = false;
-            hp = baseHp;
-            speed = baseSpeed;
-
-
-        }
-
+       
         if (hp < 0){
 
             anim.SetTrigger("mort");
@@ -82,19 +74,6 @@ private AudioSource audioSource;
 
             }
             
-
-        }
-
-        if(hp < 100){
-
-            hp += regen * Time.deltaTime;
-            speed = 1;
-
-        }
-
-        else{
-
-             speed = baseSpeed;
 
         }
 
@@ -116,6 +95,8 @@ private AudioSource audioSource;
 
     public void Pathing(){
 
+        Debug.Log(speed);
+
         if(pointsIndex <= path.Length - 1){
 
             transform.position = Vector3.MoveTowards(transform.position, path[pointsIndex].transform.position, speed * Time.deltaTime);
@@ -124,7 +105,9 @@ private AudioSource audioSource;
 
                pointsIndex= Random.Range(0,path.Length - 1);
 
-               
+               LoseSpeed();
+
+               Invoke("RestoreSpeed", 5f);
 
             }
 
@@ -135,6 +118,22 @@ private AudioSource audioSource;
             } 
 
         }
+
+    }
+
+
+    public void RestoreSpeed(){
+
+        speed = baseSpeed;
+
+        Debug.Log("IT WAS ME FLASH!!!");
+
+    }
+    public void LoseSpeed(){
+
+        speed = 0.1f;
+
+        Debug.Log("HAHA");
 
     }
 
