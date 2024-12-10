@@ -7,6 +7,7 @@ public class affichageScoreFin : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text champTextePoints;
+    [SerializeField] private TMP_Text champTextePoints2;
 
     [SerializeField] private score points;
 
@@ -14,6 +15,7 @@ public class affichageScoreFin : MonoBehaviour
     void Start()
     {
         champTextePoints.text = points.points + "$";
+        champTextePoints2.text = points.points + "$";
     }
 
     

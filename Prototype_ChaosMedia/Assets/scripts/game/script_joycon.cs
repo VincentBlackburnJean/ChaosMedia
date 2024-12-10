@@ -96,7 +96,7 @@ private List<Joycon> joycons;
                         }
                         else if (SceneManager.GetActiveScene().buildIndex == 2)
                         {
-                            sceneManager.EndGame();
+                            sceneManager.RestartGame();
                         } 
             }
 
